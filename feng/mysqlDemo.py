@@ -2,7 +2,9 @@
 __author__ = 'fzh'
 
 import mysql.connector
-conn = mysql.connector.connect(user='root', password='root', database='feidb', use_unicode=True)
+mysql_cfg = dict(user='root', password='root', database='feidb', use_unicode=True)
+#conn = mysql.connector.connect(user='root', password='root', database='feidb', use_unicode=True)
+conn = mysql.connector.connect(**mysql_cfg)
 cursor = conn.cursor()
 cursor.execute('select * from user')
 values = cursor.fetchall()
